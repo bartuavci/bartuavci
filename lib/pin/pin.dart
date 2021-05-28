@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:neo/bottom_nav_bar/bnb.dart';
+import 'package:neo/pin/biomethric_auth.dart';
 import 'package:neo/pin/keypad.dart';
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:local_auth/error_codes.dart' as auth_error;
+import 'package:neo/shared/utils.dart';
 
 class PinScreen extends StatefulWidget {
+  static const id = 'Pin';
   @override
   _PinScreenState createState() => _PinScreenState();
 }
 
 class _PinScreenState extends State<PinScreen> {
   TextEditingController pinController = TextEditingController();
-  LocalAuthentication localAuth = LocalAuthentication();
+
   String currentPin = '';
+  String autherized = "Not autherized";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,47 +90,29 @@ class _PinScreenState extends State<PinScreen> {
 
   void handleSubmit({required String pin}) {
     if (pin.length < 4) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: Text(
-            'Error!',
-            style: TextStyle(color: Colors.red),
-          ),
-          content: Text(
-            'Your Pin contains atleast 4 digits',
-            style: ConstantStyles.textStyle1,
-          ),
-          backgroundColor: ConstantColors.lightGreen,
-          actions: [
-            TextButton(
-              child: const Text(
-                'Ok',
-                style: ConstantStyles.textStyle2,
-              ),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        ),
-      );
-    }
-  }
-
-  Future<bool> isAuthentionSupported() async {
-    return await localAuth.canCheckBiometrics;
+      Utils.myErrorDialog(
+          context: context, message: "Pin should contains atleast 4 digits");
+    } else
+      navigateToNextScreen();
   }
 
   handleFingerPrint() async {
-    try {
-      bool didAuthenticate = await localAuth.authenticate(
-          localizedReason: 'Please authenticate to show account balance');
-      print(didAuthenticate);
-    } on PlatformException catch (e) {
-      if (e.code == auth_error.notAvailable) {
-        // Handle this exception here.
-      }
+    BiometricAuth biometricAuth = BiometricAuth(context: context);
+    if (await biometricAuth.checkBiometric()) {
+      biometricAuth.getAvailableBiometrics().then((value) =>
+          value.contains(BiometricType.fingerprint)
+              ? biometricAuth.authenticate()
+              : Utils.myErrorDialog(
+                  context: context,
+                  message: 'Biometric authentication is not available!'));
+    } else {
+      Utils.myErrorDialog(
+          context: context,
+          message: 'Local authentication is not availabe in this devices');
     }
+  }
+
+  void navigateToNextScreen() {
+    Navigator.pushNamed(context, BottomNavBarScreen.id);
   }
 }

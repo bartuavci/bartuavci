@@ -37,4 +37,10 @@ class ConstantStyles {
     fontSize: 36,
     letterSpacing: 20.5,
   );
+
+  static const textStyle7 = TextStyle(
+    color: ConstantColors.darkGreen,
+    fontWeight: FontWeight.w500,
+    fontSize: 13,
+  );
 }

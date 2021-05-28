@@ -28,27 +28,27 @@ class KeyPad extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buttonWidget('1'),
-              buttonWidget('2'),
-              buttonWidget('3'),
+              buttonWidget('1', ''),
+              buttonWidget('2', 'ABC'),
+              buttonWidget('3', 'DEF'),
             ],
           ),
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buttonWidget('4'),
-              buttonWidget('5'),
-              buttonWidget('6'),
+              buttonWidget('4', 'GHI'),
+              buttonWidget('5', 'JKL'),
+              buttonWidget('6', 'MNO'),
             ],
           ),
           SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              buttonWidget('7'),
-              buttonWidget('8'),
-              buttonWidget('9'),
+              buttonWidget('7', 'PQRS'),
+              buttonWidget('8', 'TUV'),
+              buttonWidget('9', 'WXYZ'),
             ],
           ),
           SizedBox(height: 20),
@@ -65,7 +65,7 @@ class KeyPad extends StatelessWidget {
                 }
                 onChange(pinController.text);
               }),
-              buttonWidget('0'),
+              buttonWidget('0', ''),
               !isPinLogin
                   ? iconButtonWidget(Icons.check, () {
                       if (pinController.text.length > 5) {
@@ -83,7 +83,7 @@ class KeyPad extends StatelessWidget {
     );
   }
 
-  buttonWidget(String buttonText) {
+  buttonWidget(String buttonText, String alphabet) {
     return InkWell(
       onTap: () {
         if (pinController.text.length <= 3) {
@@ -95,9 +95,21 @@ class KeyPad extends StatelessWidget {
         height: buttonSize,
         width: buttonSize,
         child: Center(
-          child: Text(
-            buttonText,
-            style: ConstantStyles.textStyle5,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                buttonText,
+                style: ConstantStyles.textStyle5,
+              ),
+              Visibility(
+                visible: buttonText != 0.toString(),
+                child: Text(
+                  alphabet,
+                  style: ConstantStyles.textStyle7,
+                ),
+              ),
+            ],
           ),
         ),
       ),

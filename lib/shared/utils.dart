@@ -2,6 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import 'constant/colors.dart';
+import 'constant/styles.dart';
+
 class Utils {
   static double screenWidth({required BuildContext context}) {
     return MediaQuery.of(context).size.width;
@@ -19,5 +22,34 @@ class Utils {
 
   static Color randomColor() {
     return Colors.primaries[Random().nextInt(Colors.primaries.length)];
+  }
+
+  static Future<dynamic> myErrorDialog(
+      {required BuildContext context, required String message}) {
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(
+          'Error!',
+          style: TextStyle(color: Colors.red),
+        ),
+        content: Text(
+          message,
+          style: ConstantStyles.textStyle1,
+        ),
+        backgroundColor: ConstantColors.lightGreen,
+        actions: [
+          TextButton(
+            child: const Text(
+              'Ok',
+              style: ConstantStyles.textStyle2,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
+      ),
+    );
   }
 }

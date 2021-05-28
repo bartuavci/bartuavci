@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo/pin/pin.dart';
 
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
@@ -6,7 +7,7 @@ import 'package:neo/shared/constant/values.dart';
 import 'package:neo/shared/utils.dart';
 import 'package:neo/shared/widgets/button.dart';
 
-class AuthScreen extends StatelessWidget {
+class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +40,7 @@ class AuthScreen extends StatelessWidget {
           GestureDetector(
             onTap: () => Navigator.pushNamed(
               context,
-              ROUTE_PIN,
+              PinScreen.id,
             ),
             child: MyButton(
               edgeInsets: EdgeInsets.only(top: 30),
