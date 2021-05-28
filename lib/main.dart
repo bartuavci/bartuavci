@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: buildTheme(),
       onGenerateRoute: AppRouter().generateRoute,
     );
@@ -18,10 +17,10 @@ class MyApp extends StatelessWidget {
 
   ThemeData buildTheme() {
     return ThemeData(
-      // primarySwatch: Colors.blue,
+      scaffoldBackgroundColor: ConstantColors.white,
       appBarTheme: AppBarTheme(
         elevation: 0,
-        color: ConstantColors.lightGreen,
+        color: ConstantColors.white,
         iconTheme: IconThemeData(
           color: ConstantColors.appbarBack,
         ),

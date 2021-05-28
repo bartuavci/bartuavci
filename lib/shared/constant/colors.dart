@@ -6,6 +6,7 @@ class ConstantColors {
   static const Color darkGreen = Color(0xff2F9E98);
   static const Color lightGreen = Color(0xffCFE3F5);
   static const Color black = Color(0xff000000);
+  static const Color white = Color(0xffffffff);
   static const Color appbarBack = Color(0xff686969);
   static const Color pieChartColor = Color(0xff7ABCA1);
 }

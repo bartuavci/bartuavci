@@ -28,6 +28,12 @@ class ConstantStyles {
     letterSpacing: 20.5,
   );
 
+  static const textStyle13 = TextStyle(
+    color: ConstantColors.darkGreen,
+    fontWeight: FontWeight.w600,
+    fontSize: 24,
+  );
+
   static const textStyle2 = TextStyle(
     color: ConstantColors.darkGreen,
     fontWeight: FontWeight.w600,
@@ -71,5 +77,10 @@ class ConstantStyles {
     color: ConstantColors.darkGreen,
     fontWeight: FontWeight.w500,
     fontSize: 13,
+  );
+
+  static const textStyleGrey = TextStyle(
+    color: ConstantColors.gray1,
+    fontSize: 12,
   );
 }

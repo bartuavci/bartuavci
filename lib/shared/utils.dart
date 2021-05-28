@@ -56,8 +56,9 @@ class Utils {
     );
   }
 
-  static AppBar myAppBar({required String text}) {
+  static AppBar myAppBar({required String text, Color? backgroundColor}) {
     return AppBar(
+      backgroundColor: backgroundColor,
       toolbarHeight: 86,
       automaticallyImplyLeading: false,
       title: Text(
