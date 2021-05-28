@@ -99,12 +99,18 @@ class _PinScreenState extends State<PinScreen> {
   handleFingerPrint() async {
     BiometricAuth biometricAuth = BiometricAuth(context: context);
     if (await biometricAuth.checkBiometric()) {
-      biometricAuth.getAvailableBiometrics().then((value) =>
-          value.contains(BiometricType.fingerprint)
-              ? biometricAuth.authenticate()
-              : Utils.myErrorDialog(
-                  context: context,
-                  message: 'Biometric authentication is not available!'));
+      biometricAuth.getAvailableBiometrics().then(
+            (value) => value.contains(BiometricType.fingerprint)
+                ? biometricAuth.authenticate().then(
+                      (value) => value
+                          ? navigateToNextScreen()
+                          : print('Not Authenticated'),
+                    )
+                : Utils.myErrorDialog(
+                    context: context,
+                    message: 'Biometric authentication is not available!',
+                  ),
+          );
     } else {
       Utils.myErrorDialog(
           context: context,

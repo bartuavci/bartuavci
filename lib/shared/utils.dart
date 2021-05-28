@@ -7,10 +7,13 @@ import 'constant/styles.dart';
 
 class Utils {
   static double screenWidth({required BuildContext context}) {
+    print("Width " + MediaQuery.of(context).size.width.toString());
     return MediaQuery.of(context).size.width;
   }
 
   static double screenHeight({required BuildContext context}) {
+    print("Height " + MediaQuery.of(context).size.height.toString());
+
     return MediaQuery.of(context).size.height;
   }
 
@@ -50,6 +53,36 @@ class Utils {
           ),
         ],
       ),
+    );
+  }
+
+  static AppBar myAppBar({required String text}) {
+    return AppBar(
+      toolbarHeight: 86,
+      automaticallyImplyLeading: false,
+      title: Text(
+        text,
+        style: ConstantStyles.textStyle8,
+      ),
+      actions: [
+        Container(
+          margin: EdgeInsets.all(14),
+          width: 58,
+          height: 58,
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: ConstantColors.darkGreen,
+              width: 3,
+            ),
+            shape: BoxShape.circle,
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/images/user_1.jpg',
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }

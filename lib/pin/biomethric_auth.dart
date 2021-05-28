@@ -39,7 +39,7 @@ class BiometricAuth {
     return availableBiometric;
   }
 
-  Future<void> authenticate() async {
+  Future<bool> authenticate() async {
     bool authenticated = false;
     try {
       authenticated = await auth.authenticate(
@@ -54,7 +54,8 @@ class BiometricAuth {
     }
     // if (!mounted) return;
 
-    authenticated ? print('authenticated') : print('Not authenticated');
+    // authenticated ? print('authenticated') : print('Not authenticated');
+    return authenticated;
   }
 
   void handleException({required PlatformException exception}) {
