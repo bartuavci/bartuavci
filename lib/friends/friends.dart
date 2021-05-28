@@ -74,7 +74,7 @@ class FriendsScreen extends StatelessWidget {
                 ),
                 Text(
                   userName,
-                  style: ConstantStyles.textStyleGrey,
+                  style: ConstantStyles.textStyleGrey1,
                 )
               ],
             ),

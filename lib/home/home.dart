@@ -133,7 +133,7 @@ class PieChartWidget extends StatelessWidget {
         children: [
           Text(
             title,
-            style: ConstantStyles.textStyle12,
+            style: ConstantStyles.textStyleGrey2,
           ),
           Text(
             "PKR " + value.toString(),

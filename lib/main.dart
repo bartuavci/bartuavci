@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   ThemeData buildTheme() {
     return ThemeData(
       scaffoldBackgroundColor: ConstantColors.white,
+      iconTheme: IconThemeData(color: ConstantColors.gray1),
       appBarTheme: AppBarTheme(
         elevation: 0,
         color: ConstantColors.white,

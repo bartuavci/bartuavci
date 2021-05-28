@@ -22,7 +22,9 @@ class _PinScreenState extends State<PinScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ConstantColors.lightGreen,
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: ConstantColors.lightGreen,
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: double.maxFinite,
