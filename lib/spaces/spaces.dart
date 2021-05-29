@@ -3,6 +3,7 @@ import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:neo/shared/utils.dart';
 import 'package:neo/shared/widgets/total_balance.dart';
+import 'package:neo/spaces/rent_screen.dart';
 import 'package:neo/spaces/spaces_model.dart';
 
 class SpacesScreen extends StatelessWidget {
@@ -31,7 +32,7 @@ class SpacesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(text: id),
+      appBar: Utils.myAppBar(context, text: id),
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
@@ -85,40 +86,47 @@ class SpacesScreen extends StatelessWidget {
   }
 
   Widget buildList(index, BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          width: double.maxFinite,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(31),
-            color: spacesList[index].color,
-          ),
-          height: Utils.screenWidth(context: context) / 3,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Image.asset(
-                  'assets/images/spaces/image_${index + 1}.png',
-                  width: Utils.screenWidth(context: context) / 7,
+    return GestureDetector(
+      onTap: () => handeTap(context, index: index),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            width: double.maxFinite,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(31),
+              color: spacesList[index].color,
+            ),
+            height: Utils.screenWidth(context: context) / 3,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset(
+                    'assets/images/spaces/image_${index + 1}.png',
+                    width: Utils.screenWidth(context: context) / 7,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Text(
-          spacesList[index].name,
-          style: ConstantStyles.textStyle15,
-        ),
-        Text(
-          spacesList[index].price,
-          style: ConstantStyles.textStyleGrey1,
-        )
-      ],
+          Text(
+            spacesList[index].name,
+            style: ConstantStyles.textStyle15,
+          ),
+          Text(
+            spacesList[index].price,
+            style: ConstantStyles.textStyleGrey1,
+          )
+        ],
+      ),
     );
+  }
+
+  handeTap(BuildContext context, {required int index}) {
+    if (index == 2) Navigator.pushNamed(context, RentScreen.id);
   }
 }

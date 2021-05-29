@@ -8,7 +8,7 @@ class CardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(text: id),
+      appBar: Utils.myAppBar(context, text: id),
       body: Column(
         children: <Widget>[
           Padding(

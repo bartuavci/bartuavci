@@ -1,7 +1,7 @@
-class Paymentsmodel {
+class PaymentsModel {
   final String time;
   final List<Payment> payments;
-  Paymentsmodel({
+  PaymentsModel({
     required this.time,
     required this.payments,
   });

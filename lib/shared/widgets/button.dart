@@ -5,7 +5,7 @@ class MyButton extends StatelessWidget {
   const MyButton({
     Key? key,
     required this.text,
-    required this.margin,
+    this.margin = const EdgeInsets.all(0),
   }) : super(key: key);
   final String text;
   final EdgeInsets margin;

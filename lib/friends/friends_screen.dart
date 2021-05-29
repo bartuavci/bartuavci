@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:neo/friends/friend_qr_screen.dart';
 
 import 'package:neo/friends/friends_model.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:neo/shared/constant/values.dart';
 import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/my_card.dart';
+import 'package:neo/shared/widgets/card.dart';
 
 class FriendsScreen extends StatelessWidget {
   static const id = 'Friends';
@@ -38,7 +39,7 @@ class FriendsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(text: 'Friends'),
+      appBar: Utils.myAppBar(context, text: 'Friends'),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         width: double.maxFinite,
@@ -58,11 +59,14 @@ class FriendsScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 14),
                 itemCount: friendsList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return MyCard(
-                    imageUrl: friendsList[index].imageUrl,
-                    title: friendsList[index].name,
-                    subtitle: friendsList[index].userName,
-                    endText: '',
+                  return GestureDetector(
+                    onTap: () => handleTap(context, index: index),
+                    child: MyCard(
+                      imageUrl: friendsList[index].imageUrl,
+                      title: friendsList[index].name,
+                      subtitle: friendsList[index].userName,
+                      endText: '',
+                    ),
                   );
                 },
               ),
@@ -71,5 +75,9 @@ class FriendsScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  handleTap(BuildContext context, {required int index}) {
+    if (index == 0) Navigator.pushNamed(context, FriendQrScreen.id);
   }
 }

@@ -1,7 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/values.dart';
+import 'package:neo/profile/profile_screen.dart';
+import 'package:neo/shared/widgets/appbar_close.dart';
+
+import 'package:neo/shared/widgets/circular_image.dart';
 
 import 'constant/colors.dart';
 import 'constant/styles.dart';
@@ -57,7 +60,8 @@ class Utils {
     );
   }
 
-  static AppBar myAppBar({required String text, Color? backgroundColor}) {
+  static AppBar myAppBar(BuildContext context,
+      {required String text, Color? backgroundColor}) {
     return AppBar(
       backgroundColor: backgroundColor,
       toolbarHeight: 86,
@@ -67,24 +71,20 @@ class Utils {
         style: ConstantStyles.textStyle8,
       ),
       actions: [
-        Container(
-          margin: EdgeInsets.all(14),
-          width: 58,
-          height: 58,
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: ConstantColors.darkGreen,
-              width: 3,
-            ),
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage(
-                '${BASE_USERS_URL}user_1.jpg',
-              ),
-            ),
-          ),
-        )
+        GestureDetector(
+            onTap: () => Navigator.pushNamed(context, ProfileScreen.id),
+            child: MyCircularImage())
       ],
+    );
+  }
+
+  static AppBar myAppBarWithCancelIcon({required String text}) {
+    return AppBar(
+      title: Text(
+        text,
+        style: ConstantStyles.textStyle8,
+      ),
+      leading: MyAppBarCancelIcon(),
     );
   }
 }

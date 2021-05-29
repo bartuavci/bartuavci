@@ -7,5 +7,7 @@ const String BASE_LOGO_URL = 'assets/images/logo/';
 const String BASE_PAYMENTS_URL = 'assets/images/payments/';
 const String BASE_SPACES_URL = 'assets/images/spaces/';
 const String BASE_USERS_URL = 'assets/images/users/';
+const String BASE_OTHERS_URL = 'assets/images/others/';
+const String BASE_QR_URL = 'assets/images/qr_codes/';
 
 const String ROUTE_PIN = '/pin';

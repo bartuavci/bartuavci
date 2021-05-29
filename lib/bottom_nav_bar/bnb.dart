@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:neo/card/card.dart';
-import 'package:neo/friends/friends.dart';
+import 'package:neo/friends/friends_screen.dart';
 import 'package:neo/home/home.dart';
 import 'package:neo/payments/payments.dart';
 import 'package:neo/shared/constant/colors.dart';
@@ -17,17 +17,15 @@ class BottomNavBarScreen extends StatefulWidget {
 
 class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int _selectedIndex = 2;
-
+  List<Widget> screens = <Widget>[
+    FriendsScreen(),
+    SpacesScreen(),
+    HomeScreen(),
+    CardScreen(),
+    PaymentsScreen()
+  ];
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = <Widget>[
-      FriendsScreen(),
-      SpacesScreen(),
-      HomeScreen(),
-      CardScreen(),
-      PaymentsScreen()
-    ];
-
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,

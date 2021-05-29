@@ -50,6 +50,9 @@ flutter:
     - assets/images/payments/
     - assets/images/spaces/
     - assets/images/users/
+    - assets/images/others/
+    - assets/images/qr_codes/
+    
     # - assets/images/spaces/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

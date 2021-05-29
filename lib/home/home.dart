@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ConstantColors.lightGreen,
       appBar: Utils.myAppBar(
+        context,
         text: id,
         backgroundColor: ConstantColors.lightGreen,
       ),

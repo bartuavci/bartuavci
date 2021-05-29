@@ -9,7 +9,7 @@ class MyCard extends StatelessWidget {
   final String endText;
   final double leftPadding;
   final double rightPadding;
-
+  final TextStyle titleStyle;
   const MyCard({
     Key? key,
     required this.imageUrl,
@@ -18,6 +18,7 @@ class MyCard extends StatelessWidget {
     required this.endText,
     this.leftPadding = 0,
     this.rightPadding = 6,
+    this.titleStyle = ConstantStyles.textStyle9,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class MyCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: ConstantStyles.textStyle9,
+                      style: titleStyle,
                     ),
                     Text(
                       subtitle,
