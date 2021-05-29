@@ -1,18 +1,38 @@
 import 'package:flutter/material.dart';
+
 import 'package:neo/friends/friends_model.dart';
-import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
+import 'package:neo/shared/constant/values.dart';
 import 'package:neo/shared/utils.dart';
+import 'package:neo/shared/widgets/my_card.dart';
 
 class FriendsScreen extends StatelessWidget {
   static const id = 'Friends';
   final List<FriendsModel> friendsList = [
-    FriendsModel(name: "Bartu Avci ", userName: "@Bartu5746"),
-    FriendsModel(name: "Muhannad Alhomied", userName: "@Muhannad6546"),
-    FriendsModel(name: "Afroze Khan", userName: "@Afroze7348"),
-    FriendsModel(name: "Safa Fatima", userName: "@Safa1301"),
-    FriendsModel(name: "Sakeena Ali", userName: "@Sakeena8479"),
-    FriendsModel(name: "Ahmed Afzal", userName: "@Ahmed6584"),
+    FriendsModel(
+        name: "Bartu Avci ",
+        userName: "@Bartu5746",
+        imageUrl: '${BASE_USERS_URL}image 12-0.png'),
+    FriendsModel(
+        name: "Muhannad Alhomied",
+        userName: "@Muhannad6546",
+        imageUrl: '${BASE_USERS_URL}image 12-1.png'),
+    FriendsModel(
+        name: "Afroze Khan",
+        userName: "@Afroze7348",
+        imageUrl: '${BASE_USERS_URL}image 12-2.png'),
+    FriendsModel(
+        name: "Safa Fatima",
+        userName: "@Safa1301",
+        imageUrl: '${BASE_USERS_URL}image 12-3.png'),
+    FriendsModel(
+        name: "Sakeena Ali",
+        userName: "@Sakeena8479",
+        imageUrl: '${BASE_USERS_URL}image 12-4.png'),
+    FriendsModel(
+        name: "Ahmed Afzal",
+        userName: "@Ahmed6584",
+        imageUrl: '${BASE_USERS_URL}image 12-5.png'),
   ];
 
   @override
@@ -38,78 +58,18 @@ class FriendsScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 14),
                 itemCount: friendsList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return buildList(index, friendsList[index].name,
-                      friendsList[index].userName);
+                  return MyCard(
+                    imageUrl: friendsList[index].imageUrl,
+                    title: friendsList[index].name,
+                    subtitle: friendsList[index].userName,
+                    endText: '',
+                  );
                 },
               ),
             ),
           ],
         ),
       ),
-    );
-  }
-
-  Widget buildList(int index, String name, String userName) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 9),
-      decoration: BoxDecoration(
-        border: Border(
-          left: buildBorder(color: ConstantColors.darkGreen, width: 9),
-          bottom: buildBorder(),
-          right: buildBorder(),
-          top: buildBorder(),
-        ),
-      ),
-      child: Row(
-        children: [
-          buildCircularImage(index),
-          Container(
-            padding: EdgeInsets.only(left: 6),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  name,
-                  style: ConstantStyles.textStyle9,
-                ),
-                Text(
-                  userName,
-                  style: ConstantStyles.textStyleGrey1,
-                )
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  Container buildCircularImage(int index) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: ConstantColors.white,
-          width: 3,
-        ),
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: AssetImage(
-            'assets/images/user_${index + 2}.jpg',
-          ),
-        ),
-      ),
-    );
-  }
-
-  BorderSide buildBorder({
-    Color color = ConstantColors.lightGreen,
-    double width = 2,
-  }) {
-    return BorderSide(
-      color: color,
-      width: width,
     );
   }
 }

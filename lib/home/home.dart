@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:neo/shared/constant/values.dart';
 import 'package:neo/shared/utils.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -42,7 +43,7 @@ class CenterImage extends StatelessWidget {
           padding: EdgeInsets.symmetric(
               horizontal: Utils.screenWidth(context: context) / 3),
           child: Image.asset(
-            'assets/images/logo_bubble.png',
+            LOGO_BUBBLE_IMAGE,
             scale: Utils.screenWidth(context: context) / 24,
           ),
         ),

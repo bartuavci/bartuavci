@@ -43,12 +43,12 @@ class WelcomeScreen extends StatelessWidget {
               PinScreen.id,
             ),
             child: MyButton(
-              edgeInsets: EdgeInsets.only(top: 30),
+              margin: EdgeInsets.only(top: 30),
               text: 'LOG IN',
             ),
           ),
           MyButton(
-            edgeInsets: EdgeInsets.only(top: 16),
+            margin: EdgeInsets.only(top: 16),
             text: 'REGISTER',
           )
         ],

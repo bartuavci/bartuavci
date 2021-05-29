@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:neo/shared/constant/values.dart';
 
 import 'constant/colors.dart';
 import 'constant/styles.dart';
@@ -78,7 +79,7 @@ class Utils {
             shape: BoxShape.circle,
             image: DecorationImage(
               image: AssetImage(
-                'assets/images/user_1.jpg',
+                '${BASE_USERS_URL}user_1.jpg',
               ),
             ),
           ),

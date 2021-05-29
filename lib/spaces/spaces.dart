@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:neo/shared/utils.dart';
+import 'package:neo/shared/widgets/total_balance.dart';
 import 'package:neo/spaces/spaces_model.dart';
 
 class SpacesScreen extends StatelessWidget {
@@ -36,24 +37,8 @@ class SpacesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'PKR 10,000',
-              style: ConstantStyles.textStyle14,
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Icon(
-                    Icons.visibility_rounded,
-                    color: ConstantColors.gray1,
-                  ),
-                ),
-                Text(
-                  'Total Balance',
-                  style: ConstantStyles.textStyleGrey2,
-                )
-              ],
+            MyTotalBalance(
+              totalBalance: '220,000',
             ),
             Expanded(
               child: GridView.count(

@@ -5,14 +5,14 @@ class MyButton extends StatelessWidget {
   const MyButton({
     Key? key,
     required this.text,
-    required this.edgeInsets,
+    required this.margin,
   }) : super(key: key);
   final String text;
-  final EdgeInsets edgeInsets;
+  final EdgeInsets margin;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: edgeInsets,
+      margin: margin,
       padding: EdgeInsets.symmetric(vertical: 10),
       width: 200,
       decoration: BoxDecoration(
