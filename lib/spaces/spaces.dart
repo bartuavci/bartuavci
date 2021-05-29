@@ -26,6 +26,7 @@ class SpacesScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 14,
                 mainAxisSpacing: 14,
+                childAspectRatio: 0.99,
                 children: List.generate(
                   4,
                   (index) => index != 3

@@ -10,13 +10,15 @@ class CardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Utils.myAppBar(context, text: id, showAction: true),
-      body: Column(
-        children: <Widget>[
-          buildCard(),
-          buildPinAndFreeze(),
-          SizedBox(height: 60),
-          buildHoldNearReader(context)
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            buildCard(),
+            buildPinAndFreeze(),
+            SizedBox(height: 60),
+            buildHoldNearReader(context)
+          ],
+        ),
       ),
     );
   }

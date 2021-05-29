@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
         child: ListView(
           children: [
-            buildAboutUser(),
+            buildAboutUser(context),
             SizedBox(
               height: 10,
             ),
@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Row buildAboutUser() {
+  Row buildAboutUser(BuildContext context) {
     return Row(
       children: <Widget>[
         MyCircularImage(
@@ -65,12 +65,14 @@ class ProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             buildBasicInfo(
-                icon: Icons.person,
-                text: 'M. Akbar',
-                style: ConstantStyles.textStyleGrey4),
-            buildBasicInfo(
+              context,
+              icon: Icons.person,
+              text: 'M. Akbar',
+              style: ConstantStyles.textStyleGrey4,
+            ),
+            buildBasicInfo(context,
                 icon: Icons.email_outlined, text: 'm.akbar@gmail.com'),
-            buildBasicInfo(
+            buildBasicInfo(context,
                 icon: Icons.vertical_distribute_outlined,
                 text: 'IBAN 734298688083'),
           ],
@@ -80,9 +82,11 @@ class ProfileScreen extends StatelessWidget {
   }
 
   Widget buildBasicInfo(
-      {required IconData icon,
-      required String text,
-      style: ConstantStyles.textStyleGrey5}) {
+    BuildContext context, {
+    required IconData icon,
+    required String text,
+    style: ConstantStyles.textStyleGrey5,
+  }) {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: Row(
@@ -94,9 +98,13 @@ class ProfileScreen extends StatelessWidget {
           SizedBox(
             width: 6,
           ),
-          Text(
-            text,
-            style: style,
+          Container(
+            width: Utils.screenWidth(context: context) / 2,
+            child: Text(
+              text,
+              style: style,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),
@@ -129,6 +137,7 @@ class ProfileScreen extends StatelessWidget {
                   height: 50,
                 ),
                 Container(
+                  width: Utils.screenWidth(context: context) - 200,
                   padding: EdgeInsets.only(left: 6),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

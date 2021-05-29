@@ -13,15 +13,21 @@ class CardApprovedScreen extends StatelessWidget {
           text: "Card", showLeading: true, showAction: true),
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(32, 70, 32, 10),
-            child: Image.asset('${BASE_CARD_URL}image_1.png'),
+          Expanded(
+            flex: 3,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
+              child: Image.asset('${BASE_CARD_URL}image_1.png'),
+            ),
           ),
-          SizedBox(
-            height: 170,
+          Spacer(
+            flex: 1,
           ),
-          MyDoneWidget(
-            text: 'Approved',
+          Expanded(
+            flex: 2,
+            child: MyDoneWidget(
+              text: 'Approved',
+            ),
           ),
         ],
       ),
