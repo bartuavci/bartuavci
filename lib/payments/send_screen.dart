@@ -21,32 +21,41 @@ class SendScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              MyQrCodeWidget(
-                imageName: 'sf.png',
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'PKR 4,646',
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, SentScreen.id),
-                child: MyButton(
-                  text: 'Send',
-                ),
-              ),
+              buildQrCode(),
+              buildPrice(),
+              buildSendButton(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  GestureDetector buildSendButton(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.pushNamed(context, SentScreen.id),
+      child: MyButton(
+        text: 'Send',
+      ),
+    );
+  }
+
+  Padding buildPrice() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Text(
+        'PKR 4,646',
+        style: TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
+  MyQrCodeWidget buildQrCode() {
+    return MyQrCodeWidget(
+      imageName: 'sf.png',
     );
   }
 }

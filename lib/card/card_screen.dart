@@ -12,29 +12,39 @@ class CardScreen extends StatelessWidget {
       appBar: Utils.myAppBar(context, text: id, showAction: true),
       body: Column(
         children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.fromLTRB(32, 70, 32, 10),
-            child: Image.asset('${BASE_CARD_URL}image_1.png'),
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              buildIcon(image: 'image_2', text: 'PIN'),
-              SizedBox(
-                width: 30,
-              ),
-              buildIcon(image: 'image_3', text: 'Freeze'),
-            ],
-          ),
-          SizedBox(
-            height: 60,
-          ),
-          GestureDetector(
-              onTap: () => Navigator.pushNamed(context, CardApprovedScreen.id),
-              child: buildIcon(image: 'image_4', text: 'Hold near reader'))
+          buildCard(),
+          buildPinAndFreeze(),
+          SizedBox(height: 60),
+          buildHoldNearReader(context)
         ],
       ),
+    );
+  }
+
+  GestureDetector buildHoldNearReader(BuildContext context) {
+    return GestureDetector(
+        onTap: () => Navigator.pushNamed(context, CardApprovedScreen.id),
+        child: buildIcon(image: 'image_4', text: 'Hold near reader'));
+  }
+
+  Row buildPinAndFreeze() {
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        buildIcon(image: 'image_2', text: 'PIN'),
+        SizedBox(
+          width: 30,
+        ),
+        buildIcon(image: 'image_3', text: 'Freeze'),
+      ],
+    );
+  }
+
+  Padding buildCard() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(32, 70, 32, 10),
+      child: Image.asset('${BASE_CARD_URL}image_1.png'),
     );
   }
 

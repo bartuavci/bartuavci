@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../card/card_screen.dart';
 import '../friends/friends_screen.dart';
 import '../home/home.dart';
-import '../payments/payments.dart';
+import '../payments/payments_screen.dart';
 import '../shared/constant/colors.dart';
 import '../spaces/spaces.dart';
 

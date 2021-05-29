@@ -4,10 +4,10 @@ import '../constant/styles.dart';
 import '../utils.dart';
 import 'navigate_next.dart';
 
-class MyProfileCard extends StatelessWidget {
+class MyProfileCardWidget extends StatelessWidget {
   final String title;
   final String subtitle;
-  const MyProfileCard({
+  const MyProfileCardWidget({
     Key? key,
     required this.title,
     required this.subtitle,

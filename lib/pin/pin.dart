@@ -32,55 +32,79 @@ class _PinScreenState extends State<PinScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 50.0, bottom: 6),
-                child: Text(
-                  'Use fingerprint or enter PIN',
-                  style: ConstantStyles.textStyle3,
-                ),
-              ),
-              Text(
-                'Your PIN contains atleast 4 digits',
-                style: ConstantStyles.textStyle4,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Text(
-                currentPin,
-                style: ConstantStyles.textStyle6,
-              ),
-              KeyPad(
-                pinController: pinController,
-                isPinLogin: false,
-                onChange: (String pin) {
-                  handleChange(pin: pin);
-                },
-                onSubmit: (String pin) {
-                  handleSubmit(pin: pin);
-                },
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 30, bottom: 50),
-                child: GestureDetector(
-                  onTap: () => handleFingerPrint(),
-                  child: Container(
-                    height: 60,
-                    width: 60,
-                    child: Center(
-                      child: Icon(
-                        Icons.fingerprint,
-                        size: 55,
-                        color: ConstantColors.darkGreen,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              buildInfo1(),
+              buildInfo2(),
+              buildSpace(),
+              buildEnteredPin(),
+              buildKeyPad(),
+              buildFingerPrint(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Text buildInfo2() {
+    return Text(
+      'Your PIN contains atleast 4 digits',
+      style: ConstantStyles.textStyle4,
+    );
+  }
+
+  Padding buildInfo1() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 50.0, bottom: 6),
+      child: Text(
+        'Use fingerprint or enter PIN',
+        style: ConstantStyles.textStyle3,
+      ),
+    );
+  }
+
+  SizedBox buildSpace() {
+    return SizedBox(
+      height: 30,
+    );
+  }
+
+  Text buildEnteredPin() {
+    return Text(
+      currentPin,
+      style: ConstantStyles.textStyle6,
+    );
+  }
+
+  Padding buildFingerPrint() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, bottom: 50),
+      child: GestureDetector(
+        onTap: () => handleFingerPrint(),
+        child: Container(
+          height: 60,
+          width: 60,
+          child: Center(
+            child: Icon(
+              Icons.fingerprint,
+              size: 55,
+              color: ConstantColors.darkGreen,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  KeyPad buildKeyPad() {
+    return KeyPad(
+      pinController: pinController,
+      isPinLogin: false,
+      onChange: (String pin) {
+        handleChange(pin: pin);
+      },
+      onSubmit: (String pin) {
+        handleSubmit(pin: pin);
+      },
     );
   }
 

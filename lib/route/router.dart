@@ -6,7 +6,7 @@ import '../card/card_screen.dart';
 import '../friends/friend_qr_screen.dart';
 import '../friends/friends_screen.dart';
 import '../home/home.dart';
-import '../payments/payments.dart';
+import '../payments/payments_screen.dart';
 import '../payments/send_screen.dart';
 import '../payments/sent_screen.dart';
 import '../pin/pin.dart';

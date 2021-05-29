@@ -19,7 +19,6 @@ class BiometricAuth {
     } on PlatformException catch (e) {
       handleException(exception: e);
     }
-    // if (!mounted) return false;
 
     print("Can check biometric " + canCheckBiometric.toString());
     return canCheckBiometric;
@@ -33,7 +32,6 @@ class BiometricAuth {
     } on PlatformException catch (e) {
       handleException(exception: e);
     }
-    // if (!mounted) return availableBiometric;
 
     print("availableBiometric " + availableBiometric.toString());
     return availableBiometric;
@@ -52,9 +50,7 @@ class BiometricAuth {
     } on PlatformException catch (e) {
       handleException(exception: e);
     }
-    // if (!mounted) return;
 
-    // authenticated ? print('authenticated') : print('Not authenticated');
     return authenticated;
   }
 

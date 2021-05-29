@@ -19,28 +19,31 @@ class SentScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              MyQrCodeWidget(
-                imageName: 'sf.png',
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'PKR 4,646',
-                style: TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              MyDoneWidget(text: 'Sent')
-            ],
+            children: [buildQrCode(), buildPrice(), buildDone()],
           ),
         ),
       ),
+    );
+  }
+
+  MyDoneWidget buildDone() => MyDoneWidget(text: 'Sent');
+
+  Padding buildPrice() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 20),
+      child: Text(
+        'PKR 4,646',
+        style: TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
+  MyQrCodeWidget buildQrCode() {
+    return MyQrCodeWidget(
+      imageName: 'sf.png',
     );
   }
 }

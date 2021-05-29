@@ -4,30 +4,10 @@ import '../shared/constant/styles.dart';
 import '../shared/utils.dart';
 import '../shared/widgets/total_balance.dart';
 import 'rent_screen.dart';
-import 'spaces_model.dart';
+import 'spaces_data.dart';
 
 class SpacesScreen extends StatelessWidget {
   static const id = 'Spaces';
-  final List<SpacesModel> spacesList = [
-    SpacesModel(
-      color: Color(0xffCFE3F5),
-      name: 'Main Account',
-      price: 'PKR 5,894',
-      imageUrl: '',
-    ),
-    SpacesModel(
-      color: Color(0xffDDDEF0),
-      name: 'Trip to Thailand',
-      price: 'PKR 1,894',
-      imageUrl: '',
-    ),
-    SpacesModel(
-      color: Color(0xffFCDBDB),
-      name: 'Rent',
-      price: '',
-      imageUrl: '',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {

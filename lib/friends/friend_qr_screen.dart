@@ -21,51 +21,60 @@ class FriendQrScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
-            children: [
-              SizedBox(
-                height: 20,
-              ),
-              MyQrCodeWidget(
-                imageName: 'ba.png',
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Bartu Avci ',
-                style: TextStyle(fontSize: 22),
-              ),
-              Text(
-                '@Bartu5746',
-                style: ConstantStyles.textStyleGrey3,
-              ),
-              Text('+9232182764537', style: ConstantStyles.textStyleGrey3),
-              SizedBox(
-                height: 125,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 9,
-                    child: MyButton(
-                      text: 'Send',
-                    ),
-                  ),
-                  Spacer(
-                    flex: 1,
-                  ),
-                  Expanded(
-                    flex: 9,
-                    child: MyButton(
-                      text: 'Request',
-                    ),
-                  ),
-                ],
-              )
-            ],
+            children: [buildQrCode(), buildTexts(), buildButtons()],
           ),
         ),
       ),
+    );
+  }
+
+  Row buildButtons() {
+    return Row(
+      children: [
+        Expanded(
+          flex: 9,
+          child: MyButton(
+            text: 'Send',
+          ),
+        ),
+        Spacer(
+          flex: 1,
+        ),
+        Expanded(
+          flex: 9,
+          child: MyButton(
+            text: 'Request',
+          ),
+        ),
+      ],
+    );
+  }
+
+  Padding buildTexts() {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 80),
+      child: Column(
+        children: [
+          Text(
+            'Bartu Avci ',
+            style: TextStyle(fontSize: 22),
+          ),
+          Text(
+            '@Bartu5746',
+            style: ConstantStyles.textStyleGrey3,
+          ),
+          Text(
+            '+9232182764537',
+            style: ConstantStyles.textStyleGrey3,
+          ),
+        ],
+      ),
+    );
+  }
+
+  MyQrCodeWidget buildQrCode() {
+    return MyQrCodeWidget(
+      imageName: 'ba.png',
     );
   }
 }

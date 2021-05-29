@@ -18,60 +18,64 @@ class ProfileScreen extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
         child: ListView(
           children: [
-            Row(
-              children: <Widget>[
-                MyCircularImage(
-                  allMargin: 0,
-                  height: 80,
-                  width: 80,
-                ),
-                SizedBox(
-                  width: 14,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    buildBasicInfo(
-                        icon: Icons.person,
-                        text: 'M. Akbar',
-                        style: ConstantStyles.textStyleGrey4),
-                    buildBasicInfo(
-                        icon: Icons.email_outlined, text: 'm.akbar@gmail.com'),
-                    buildBasicInfo(
-                        icon: Icons.vertical_distribute_outlined,
-                        text: 'IBAN 734298688083'),
-                  ],
-                ),
-              ],
-            ),
+            buildAboutUser(),
             SizedBox(
               height: 10,
             ),
             buildQrCodeCard(context),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Personal Settings',
                 subtitle: 'Manage your app settings and personal details'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Market Place',
                 subtitle: 'View, connect and manage providers'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Account Information',
                 subtitle: 'Account details and documents'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Statement', subtitle: 'Monthly transaction history'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Add Money',
                 subtitle:
                     'Add money via cheques, local stores or bank transfers'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Overdraft', subtitle: 'View and manage your overdraft'),
-            MyProfileCard(
+            MyProfileCardWidget(
                 title: 'Refer a Friend',
                 subtitle: 'Refer a friend, Neo plants a tree'),
-            MyProfileCard(title: 'Help', subtitle: 'Get in touch'),
+            MyProfileCardWidget(title: 'Help', subtitle: 'Get in touch'),
           ],
         ),
       ),
+    );
+  }
+
+  Row buildAboutUser() {
+    return Row(
+      children: <Widget>[
+        MyCircularImage(
+          allMargin: 0,
+          height: 80,
+          width: 80,
+        ),
+        SizedBox(
+          width: 14,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            buildBasicInfo(
+                icon: Icons.person,
+                text: 'M. Akbar',
+                style: ConstantStyles.textStyleGrey4),
+            buildBasicInfo(
+                icon: Icons.email_outlined, text: 'm.akbar@gmail.com'),
+            buildBasicInfo(
+                icon: Icons.vertical_distribute_outlined,
+                text: 'IBAN 734298688083'),
+          ],
+        ),
+      ],
     );
   }
 
