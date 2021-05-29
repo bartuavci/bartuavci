@@ -32,7 +32,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       ),
       // screens[_selectedIndex],
       bottomNavigationBar: Container(
-        height: 75,
+        // height: 75,
         decoration: BoxDecoration(
             color: ConstantColors.darkGreen,
             border: Border(
