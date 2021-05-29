@@ -5,17 +5,21 @@ import '../constant/values.dart';
 
 class MyCircularImage extends StatelessWidget {
   final double allMargin;
+  final double width;
+  final double height;
   const MyCircularImage({
     Key? key,
     this.allMargin = 14,
+    this.width = 58,
+    this.height = 58,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(allMargin),
-      width: 58,
-      height: 58,
+      width: height,
+      height: width,
       decoration: BoxDecoration(
         border: Border.all(
           color: ConstantColors.darkGreen,

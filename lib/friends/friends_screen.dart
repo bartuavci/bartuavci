@@ -61,7 +61,7 @@ class FriendsScreen extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return GestureDetector(
                     onTap: () => handleTap(context, index: index),
-                    child: MyCard(
+                    child: MyCardWidget(
                       imageUrl: friendsList[index].imageUrl,
                       title: friendsList[index].name,
                       subtitle: friendsList[index].userName,

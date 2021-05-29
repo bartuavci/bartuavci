@@ -83,6 +83,13 @@ class ConstantStyles {
     color: ConstantColors.gray1,
     fontSize: 16,
   );
+
+  static const textStyleGrey4 = TextStyle(
+      color: ConstantColors.gray1, fontSize: 18, fontWeight: FontWeight.w600);
+  static const textStyleGrey5 = TextStyle(
+    color: ConstantColors.gray1,
+    fontSize: 18,
+  );
   static const textStyle15 = TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: 16,

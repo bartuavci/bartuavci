@@ -14,7 +14,7 @@ class CardApprovedScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(32.0),
+            padding: const EdgeInsets.fromLTRB(32, 70, 32, 10),
             child: Image.asset('${BASE_CARD_URL}image_1.png'),
           ),
           SizedBox(

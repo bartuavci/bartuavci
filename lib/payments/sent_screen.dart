@@ -20,7 +20,7 @@ class SentScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              MyQrCode(
+              MyQrCodeWidget(
                 imageName: 'sf.png',
               ),
               SizedBox(

@@ -21,7 +21,7 @@ class UserQrScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
             children: [
-              MyQrCode(
+              MyQrCodeWidget(
                 imageName: 'ma.png',
               ),
               SizedBox(

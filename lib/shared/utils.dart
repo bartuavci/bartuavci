@@ -60,18 +60,18 @@ class Utils {
     );
   }
 
-  static AppBar myAppBar(
-    BuildContext context, {
-    required String text,
-    Color? backgroundColor,
-    bool showAction = false,
-    bool showLeading = false,
-  }) {
+  static AppBar myAppBar(BuildContext context,
+      {required String text,
+      Color? backgroundColor,
+      bool showAction = false,
+      bool showLeading = false,
+      double height = 86}) {
     return AppBar(
       backgroundColor: backgroundColor,
-      toolbarHeight: 86,
+      toolbarHeight: height,
+      // leadingWidth: 50,
       automaticallyImplyLeading: false,
-      leading: showLeading ? MyAppBarCancelIcon() : SizedBox.shrink(),
+      leading: showLeading ? MyAppBarCancelIcon() : null,
       title: Text(
         text,
         style: ConstantStyles.textStyle8,

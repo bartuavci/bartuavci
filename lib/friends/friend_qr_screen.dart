@@ -22,7 +22,10 @@ class FriendQrScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
             children: [
-              MyQrCode(
+              SizedBox(
+                height: 20,
+              ),
+              MyQrCodeWidget(
                 imageName: 'ba.png',
               ),
               SizedBox(
@@ -38,7 +41,7 @@ class FriendQrScreen extends StatelessWidget {
               ),
               Text('+9232182764537', style: ConstantStyles.textStyleGrey3),
               SizedBox(
-                height: 70,
+                height: 125,
               ),
               Row(
                 children: [

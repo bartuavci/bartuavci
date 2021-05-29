@@ -16,11 +16,11 @@ class MyDoneWidget extends StatelessWidget {
         Icon(
           Icons.check_circle_outline,
           color: ConstantColors.darkGreen,
-          size: 55,
+          size: 60,
         ),
         Text(
           text,
-          style: ConstantStyles.textStyleGrey1,
+          style: ConstantStyles.textStyleGrey3,
         ),
       ],
     );

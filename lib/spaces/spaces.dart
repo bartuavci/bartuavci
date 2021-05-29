@@ -38,7 +38,7 @@ class SpacesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyTotalBalance(
+            MyTotalBalanceWidget(
               totalBalance: '220,000',
             ),
             Expanded(

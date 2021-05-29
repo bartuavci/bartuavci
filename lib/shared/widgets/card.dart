@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../constant/colors.dart';
 import '../constant/styles.dart';
 
-class MyCard extends StatelessWidget {
+class MyCardWidget extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String subtitle;
@@ -10,7 +10,8 @@ class MyCard extends StatelessWidget {
   final double leftPadding;
   final double rightPadding;
   final TextStyle titleStyle;
-  const MyCard({
+  final double verticalMargin;
+  const MyCardWidget({
     Key? key,
     required this.imageUrl,
     required this.title,
@@ -19,11 +20,12 @@ class MyCard extends StatelessWidget {
     this.leftPadding = 0,
     this.rightPadding = 6,
     this.titleStyle = ConstantStyles.textStyle9,
+    this.verticalMargin = 9,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 9),
+      margin: EdgeInsets.symmetric(vertical: verticalMargin),
       padding: EdgeInsets.only(left: leftPadding, right: rightPadding),
       decoration: BoxDecoration(
         border: Border(

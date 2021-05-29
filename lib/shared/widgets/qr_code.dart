@@ -3,9 +3,9 @@ import '../constant/values.dart';
 
 import '../utils.dart';
 
-class MyQrCode extends StatelessWidget {
+class MyQrCodeWidget extends StatelessWidget {
   final String imageName;
-  const MyQrCode({
+  const MyQrCodeWidget({
     Key? key,
     required this.imageName,
   }) : super(key: key);
@@ -14,8 +14,8 @@ class MyQrCode extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       BASE_QR_URL + imageName,
-      width: Utils.screenWidth(context: context) / 2,
-      height: Utils.screenWidth(context: context) / 2,
+      width: Utils.screenWidth(context: context) / 1.5,
+      height: Utils.screenWidth(context: context) / 1.5,
     );
   }
 }

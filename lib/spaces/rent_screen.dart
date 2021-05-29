@@ -13,13 +13,17 @@ class RentScreen extends StatelessWidget {
         context,
         text: id,
         showLeading: true,
+        showAction: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(14.0),
+          padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Column(
             children: [
-              MyTotalBalance(totalBalance: 'PKR 2,894'),
+              MyTotalBalanceWidget(totalBalance: 'PKR 2,894'),
+              SizedBox(
+                height: 20,
+              ),
               buildYourBalance(),
               buildRentList(textOnEnd: "Now", title: "When"),
               buildRentList(textOnEnd: "One Off", title: "Frequency"),
@@ -35,7 +39,7 @@ class RentScreen extends StatelessWidget {
       color: ConstantColors.lightGreen,
       padding: EdgeInsets.fromLTRB(14, 8, 8, 8),
       margin: EdgeInsets.symmetric(vertical: 8),
-      height: 60,
+      height: 55,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,11 +62,12 @@ class RentScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: ConstantColors.darkGreen,
                           borderRadius: BorderRadius.circular(4)),
-                      margin: EdgeInsets.all(8),
+                      margin: EdgeInsets.all(6),
                       padding:
-                          EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 1),
                       // height: 35,
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
                             'Add',
@@ -88,7 +93,7 @@ class RentScreen extends StatelessWidget {
       color: ConstantColors.lightGreen,
       padding: EdgeInsets.fromLTRB(14, 8, 8, 8),
       margin: EdgeInsets.symmetric(vertical: 8),
-      height: 60,
+      height: 55,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

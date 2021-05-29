@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../constant/colors.dart';
 import '../constant/styles.dart';
 
-class MyTotalBalance extends StatelessWidget {
-  const MyTotalBalance({
+class MyTotalBalanceWidget extends StatelessWidget {
+  const MyTotalBalanceWidget({
     Key? key,
     required this.totalBalance,
   }) : super(key: key);
@@ -17,6 +17,7 @@ class MyTotalBalance extends StatelessWidget {
           'PKR $totalBalance',
           style: ConstantStyles.textStyle14,
         ),
+        SizedBox(height: 4),
         Row(
           children: [
             Padding(

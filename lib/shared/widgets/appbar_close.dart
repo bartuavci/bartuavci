@@ -7,7 +7,7 @@ class MyAppBarCancelIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
         onTap: () => Navigator.pop(context),
         child: Padding(
           padding: const EdgeInsets.all(18.0),

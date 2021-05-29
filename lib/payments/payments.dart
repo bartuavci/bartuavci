@@ -51,36 +51,41 @@ class PaymentsScreen extends StatelessWidget {
     return Scaffold(
       appBar: Utils.myAppBar(context, text: id, showAction: true),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            MyTotalBalance(
+            MyTotalBalanceWidget(
               totalBalance: '220,000',
             ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 10,
-                  child: MyButton(
-                    margin: EdgeInsets.all(0),
-                    text: 'Receive',
-                  ),
-                ),
-                Spacer(
-                  flex: 1,
-                ),
-                Expanded(
-                  flex: 10,
-                  child: GestureDetector(
-                    onTap: () => Navigator.pushNamed(context, SendScreen.id),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 10,
                     child: MyButton(
                       margin: EdgeInsets.all(0),
-                      text: 'Send',
+                      text: 'Receive',
+                      borderRadius: 9,
                     ),
                   ),
-                ),
-              ],
+                  Spacer(
+                    flex: 1,
+                  ),
+                  Expanded(
+                    flex: 10,
+                    child: GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, SendScreen.id),
+                      child: MyButton(
+                        margin: EdgeInsets.all(0),
+                        borderRadius: 9,
+                        text: 'Send',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             Expanded(
               child: ListView.builder(
@@ -101,20 +106,24 @@ class PaymentsScreen extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          paymentsList[index].time,
-          style: TextStyle(fontSize: 23),
+        Padding(
+          padding: const EdgeInsets.only(top: 30, bottom: 12),
+          child: Text(
+            paymentsList[index].time,
+            style: TextStyle(fontSize: 23),
+          ),
         ),
         Column(
           children: List.generate(
             paymentsList[index].payments.length,
-            (indexCard) => MyCard(
+            (indexCard) => MyCardWidget(
               imageUrl: payments[indexCard].imageUrl,
               title: payments[indexCard].name,
               subtitle: payments[indexCard].date,
               endText: payments[index].price,
               titleStyle: TextStyle(fontSize: 18),
               leftPadding: 16,
+              verticalMargin: 4,
             ),
           ),
         )

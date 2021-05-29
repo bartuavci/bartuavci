@@ -13,7 +13,7 @@ class CardScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(32.0),
+            padding: const EdgeInsets.fromLTRB(32, 70, 32, 10),
             child: Image.asset('${BASE_CARD_URL}image_1.png'),
           ),
           Row(
@@ -28,7 +28,7 @@ class CardScreen extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 70,
+            height: 60,
           ),
           GestureDetector(
               onTap: () => Navigator.pushNamed(context, CardApprovedScreen.id),
@@ -55,7 +55,7 @@ class CardScreen extends StatelessWidget {
         ),
         Text(
           text,
-          style: ConstantStyles.textStyleGrey1,
+          style: ConstantStyles.textStyleGrey3,
         ),
       ],
     );

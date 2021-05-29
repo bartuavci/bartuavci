@@ -13,7 +13,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(context, text: id, showLeading: true),
+      appBar: Utils.myAppBar(context, text: id, showLeading: true, height: 50),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
         child: ListView(
@@ -22,11 +22,19 @@ class ProfileScreen extends StatelessWidget {
               children: <Widget>[
                 MyCircularImage(
                   allMargin: 0,
+                  height: 80,
+                  width: 80,
+                ),
+                SizedBox(
+                  width: 14,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    buildBasicInfo(icon: Icons.person, text: 'M. Akbar'),
+                    buildBasicInfo(
+                        icon: Icons.person,
+                        text: 'M. Akbar',
+                        style: ConstantStyles.textStyleGrey4),
                     buildBasicInfo(
                         icon: Icons.email_outlined, text: 'm.akbar@gmail.com'),
                     buildBasicInfo(
@@ -35,6 +43,9 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
               ],
+            ),
+            SizedBox(
+              height: 10,
             ),
             buildQrCodeCard(context),
             MyProfileCard(
@@ -64,12 +75,27 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Row buildBasicInfo({required IconData icon, required String text}) {
-    return Row(
-      children: <Widget>[
-        Icon(icon),
-        Text(text),
-      ],
+  Widget buildBasicInfo(
+      {required IconData icon,
+      required String text,
+      style: ConstantStyles.textStyleGrey5}) {
+    return Padding(
+      padding: const EdgeInsets.all(2.0),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            icon,
+            color: ConstantColors.darkGreen,
+          ),
+          SizedBox(
+            width: 6,
+          ),
+          Text(
+            text,
+            style: style,
+          ),
+        ],
+      ),
     );
   }
 
@@ -77,7 +103,7 @@ class ProfileScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.pushNamed(context, UserQrScreen.id),
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 9),
+        margin: EdgeInsets.symmetric(vertical: 4),
         padding: EdgeInsets.only(left: 14, right: 14),
         decoration: BoxDecoration(
           border: Border(
