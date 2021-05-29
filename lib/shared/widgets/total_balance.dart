@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
+import '../constant/colors.dart';
+import '../constant/styles.dart';
 
 class MyTotalBalance extends StatelessWidget {
   const MyTotalBalance({

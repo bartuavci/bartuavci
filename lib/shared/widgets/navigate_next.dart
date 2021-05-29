@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
+import '../constant/colors.dart';
 
 class MyNavigateNext extends StatelessWidget {
   const MyNavigateNext({

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:neo/card/card.dart';
-import 'package:neo/friends/friends_screen.dart';
-import 'package:neo/home/home.dart';
-import 'package:neo/payments/payments.dart';
-import 'package:neo/shared/constant/colors.dart';
-
-import 'package:neo/spaces/spaces.dart';
+import '../card/card_screen.dart';
+import '../friends/friends_screen.dart';
+import '../home/home.dart';
+import '../payments/payments.dart';
+import '../shared/constant/colors.dart';
+import '../spaces/spaces.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   static const id = 'BottomNavBar';

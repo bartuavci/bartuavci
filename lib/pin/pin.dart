@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neo/bottom_nav_bar/bnb.dart';
-import 'package:neo/pin/biomethric_auth.dart';
-import 'package:neo/pin/keypad.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
+import '../bottom_nav_bar/bnb.dart';
+import 'biomethric_auth.dart';
+import 'keypad.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
 import 'package:local_auth/local_auth.dart';
-import 'package:neo/shared/utils.dart';
+import '../shared/utils.dart';
 
 class PinScreen extends StatefulWidget {
   static const id = 'Pin';

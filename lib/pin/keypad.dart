@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
 
 class KeyPad extends StatelessWidget {
   final double buttonSize;

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:neo/payments/payments_model.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/button.dart';
-import 'package:neo/shared/widgets/card.dart';
+import 'payments_model.dart';
+import 'send_screen.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/button.dart';
+import '../shared/widgets/card.dart';
 
-import 'package:neo/shared/widgets/total_balance.dart';
+import '../shared/widgets/total_balance.dart';
 
 class PaymentsScreen extends StatelessWidget {
   static const id = 'Payment';
@@ -48,7 +49,7 @@ class PaymentsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(context, text: id),
+      appBar: Utils.myAppBar(context, text: id, showAction: true),
       body: Padding(
         padding: const EdgeInsets.all(14.0),
         child: Column(
@@ -71,9 +72,12 @@ class PaymentsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 10,
-                  child: MyButton(
-                    margin: EdgeInsets.all(0),
-                    text: 'Send',
+                  child: GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, SendScreen.id),
+                    child: MyButton(
+                      margin: EdgeInsets.all(0),
+                      text: 'Send',
+                    ),
                   ),
                 ),
               ],

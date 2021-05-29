@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:neo/profile/profile_screen.dart';
-import 'package:neo/shared/widgets/appbar_close.dart';
+import '../profile/profile_screen.dart';
+import 'widgets/appbar_close.dart';
 
-import 'package:neo/shared/widgets/circular_image.dart';
+import 'widgets/circular_image.dart';
 
 import 'constant/colors.dart';
 import 'constant/styles.dart';
@@ -60,31 +60,29 @@ class Utils {
     );
   }
 
-  static AppBar myAppBar(BuildContext context,
-      {required String text, Color? backgroundColor}) {
+  static AppBar myAppBar(
+    BuildContext context, {
+    required String text,
+    Color? backgroundColor,
+    bool showAction = false,
+    bool showLeading = false,
+  }) {
     return AppBar(
       backgroundColor: backgroundColor,
       toolbarHeight: 86,
       automaticallyImplyLeading: false,
+      leading: showLeading ? MyAppBarCancelIcon() : SizedBox.shrink(),
       title: Text(
         text,
         style: ConstantStyles.textStyle8,
       ),
       actions: [
-        GestureDetector(
-            onTap: () => Navigator.pushNamed(context, ProfileScreen.id),
-            child: MyCircularImage())
+        showAction
+            ? GestureDetector(
+                onTap: () => Navigator.pushNamed(context, ProfileScreen.id),
+                child: MyCircularImage())
+            : SizedBox.shrink()
       ],
-    );
-  }
-
-  static AppBar myAppBarWithCancelIcon({required String text}) {
-    return AppBar(
-      title: Text(
-        text,
-        style: ConstantStyles.textStyle8,
-      ),
-      leading: MyAppBarCancelIcon(),
     );
   }
 }

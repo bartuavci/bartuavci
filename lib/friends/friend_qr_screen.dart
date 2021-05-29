@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/button.dart';
+
+import '../shared/constant/styles.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/button.dart';
+import '../shared/widgets/qr_code.dart';
 
 class FriendQrScreen extends StatelessWidget {
   static const id = 'FriendQr';
@@ -11,16 +12,18 @@ class FriendQrScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBarWithCancelIcon(text: "Friends"),
+      appBar: Utils.myAppBar(
+        context,
+        text: "Friends",
+        showLeading: true,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
             children: [
-              Image.asset(
-                BASE_QR_URL + 'ba.png',
-                width: Utils.screenWidth(context: context) / 2,
-                height: Utils.screenWidth(context: context) / 2,
+              MyQrCode(
+                imageName: 'ba.png',
               ),
               SizedBox(
                 height: 10,

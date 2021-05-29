@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/values.dart';
+import '../constant/colors.dart';
+import '../constant/values.dart';
 
 class MyCircularImage extends StatelessWidget {
   final double allMargin;

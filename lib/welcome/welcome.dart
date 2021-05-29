@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neo/pin/pin.dart';
+import '../pin/pin.dart';
 
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/button.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/button.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override

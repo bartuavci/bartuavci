@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
 
 class HomeScreen extends StatelessWidget {
   static const id = 'Home';
@@ -11,11 +11,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ConstantColors.lightGreen,
-      appBar: Utils.myAppBar(
-        context,
-        text: id,
-        backgroundColor: ConstantColors.lightGreen,
-      ),
+      appBar: Utils.myAppBar(context,
+          text: id,
+          backgroundColor: ConstantColors.lightGreen,
+          showAction: true),
       body: SingleChildScrollView(
         child: Stack(
           children: [

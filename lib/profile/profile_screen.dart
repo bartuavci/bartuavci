@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:neo/profile/user_qr.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/circular_image.dart';
-import 'package:neo/shared/widgets/navigate_next.dart';
-import 'package:neo/shared/widgets/profile_card.dart';
+import 'user_qr.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/circular_image.dart';
+import '../shared/widgets/navigate_next.dart';
+import '../shared/widgets/profile_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const String id = 'Profile';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBarWithCancelIcon(text: id),
+      appBar: Utils.myAppBar(context, text: id, showLeading: true),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(14, 14, 14, 0),
         child: ListView(

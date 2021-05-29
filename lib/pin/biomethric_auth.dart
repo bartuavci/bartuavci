@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:local_auth/local_auth.dart';
 
-import 'package:neo/shared/utils.dart';
+import '../shared/utils.dart';
 
 class BiometricAuth {
   final BuildContext context;

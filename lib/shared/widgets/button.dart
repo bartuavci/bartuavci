@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
+import '../constant/colors.dart';
 
 class MyButton extends StatelessWidget {
   const MyButton({

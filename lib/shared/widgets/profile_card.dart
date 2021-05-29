@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/navigate_next.dart';
+import '../constant/colors.dart';
+import '../constant/styles.dart';
+import '../utils.dart';
+import 'navigate_next.dart';
 
 class MyProfileCard extends StatelessWidget {
   final String title;

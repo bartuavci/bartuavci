@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:neo/route/router.dart';
-import 'package:neo/shared/constant/colors.dart';
+import 'route/router.dart';
+import 'shared/constant/colors.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
+import 'card_approved_screen.dart';
+import '../shared/constant/styles.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
 
 class CardScreen extends StatelessWidget {
   static const id = 'Card';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(context, text: id),
+      appBar: Utils.myAppBar(context, text: id, showAction: true),
       body: Column(
         children: <Widget>[
           Padding(
@@ -19,23 +20,25 @@ class CardScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              buildIcons(image: 'image_2', text: 'PIN'),
+              buildIcon(image: 'image_2', text: 'PIN'),
               SizedBox(
                 width: 30,
               ),
-              buildIcons(image: 'image_3', text: 'Freeze'),
+              buildIcon(image: 'image_3', text: 'Freeze'),
             ],
           ),
           SizedBox(
             height: 70,
           ),
-          buildIcons(image: 'image_4', text: 'Hold near reader')
+          GestureDetector(
+              onTap: () => Navigator.pushNamed(context, CardApprovedScreen.id),
+              child: buildIcon(image: 'image_4', text: 'Hold near reader'))
         ],
       ),
     );
   }
 
-  Column buildIcons({
+  Column buildIcon({
     required String image,
     required String text,
   }) {

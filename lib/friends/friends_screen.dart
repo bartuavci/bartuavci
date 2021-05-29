@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neo/friends/friend_qr_screen.dart';
+import 'friend_qr_screen.dart';
 
-import 'package:neo/friends/friends_model.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/constant/values.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/card.dart';
+import 'friends_model.dart';
+import '../shared/constant/styles.dart';
+import '../shared/constant/values.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/card.dart';
 
 class FriendsScreen extends StatelessWidget {
   static const id = 'Friends';
@@ -39,7 +39,7 @@ class FriendsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBar(context, text: 'Friends'),
+      appBar: Utils.myAppBar(context, text: 'Friends', showAction: true),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14.0),
         width: double.maxFinite,

@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/colors.dart';
-import 'package:neo/shared/constant/styles.dart';
-import 'package:neo/shared/utils.dart';
-import 'package:neo/shared/widgets/total_balance.dart';
+import '../shared/constant/colors.dart';
+import '../shared/constant/styles.dart';
+import '../shared/utils.dart';
+import '../shared/widgets/total_balance.dart';
 
 class RentScreen extends StatelessWidget {
   static const id = 'Rent';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: Utils.myAppBarWithCancelIcon(text: id),
+      appBar: Utils.myAppBar(
+        context,
+        text: id,
+        showLeading: true,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(14.0),
