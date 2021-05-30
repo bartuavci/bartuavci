@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neo/user/user_data.dart';
+import 'package:neo/user/user_model.dart';
 import 'user_qr.dart';
 import '../shared/constant/colors.dart';
 import '../shared/constant/styles.dart';
@@ -50,35 +52,43 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  Row buildAboutUser(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        MyCircularImage(
-          allMargin: 0,
-          height: 80,
-          width: 80,
-        ),
-        SizedBox(
-          width: 14,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            buildBasicInfo(
-              context,
-              icon: Icons.person,
-              text: 'M. Akbar',
-              style: ConstantStyles.textStyleGrey4,
-            ),
-            buildBasicInfo(context,
-                icon: Icons.email_outlined, text: 'm.akbar@gmail.com'),
-            buildBasicInfo(context,
-                icon: Icons.vertical_distribute_outlined,
-                text: 'IBAN 734298688083'),
-          ],
-        ),
-      ],
-    );
+  Widget buildAboutUser(BuildContext context) {
+    return FutureBuilder(
+        future: UserData().currentUserInfo(),
+        builder: (context, AsyncSnapshot<UserModel> snapshot) {
+          if (snapshot.hasData) {
+            return Row(
+              children: <Widget>[
+                MyCircularImage(
+                  allMargin: 0,
+                  height: 80,
+                  width: 80,
+                ),
+                SizedBox(
+                  width: 14,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    buildBasicInfo(
+                      context,
+                      icon: Icons.person,
+                      text: snapshot.data!.name,
+                      style: ConstantStyles.textStyleGrey4,
+                    ),
+                    buildBasicInfo(context,
+                        icon: Icons.email_outlined, text: snapshot.data!.email),
+                    buildBasicInfo(context,
+                        icon: Icons.vertical_distribute_outlined,
+                        text: 'IBAN 734298688083'),
+                  ],
+                ),
+              ],
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        });
   }
 
   Widget buildBasicInfo(

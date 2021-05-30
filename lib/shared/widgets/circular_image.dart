@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neo/shared/constant/values.dart';
 import 'package:neo/user/user_data.dart';
 import 'package:neo/user/user_model.dart';
 

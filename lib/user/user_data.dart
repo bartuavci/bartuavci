@@ -8,15 +8,15 @@ class UserData {
       name: 'M. Akbar',
       email: 'm.akbar@gmail.com',
       picture: BASE_USERS_URL + 'user_1.jpg',
-      qrCode: BASE_QR_URL + 'user1.png',
+      qrCode: 'user1.png',
       userName: '@Akbar6584',
     ),
     UserModel(
-      name: 'Bartu Avci ',
-      email: 'bartuavici@gmail.com',
-      picture: BASE_USERS_URL + 'image 12-6.png',
-      qrCode: BASE_QR_URL + 'user2.png',
-      userName: '@bartu',
+      name: 'Amira',
+      email: 'amira@gmail.com',
+      picture: BASE_USERS_URL + 'user_2.jpg',
+      qrCode: 'user2.png',
+      userName: '@amira',
     ),
   ];
 
