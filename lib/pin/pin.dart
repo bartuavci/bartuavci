@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neo/user/user_data.dart';
+import 'package:neo/user/user_model.dart';
 import '../bottom_nav_bar/bnb.dart';
 import 'biomethric_auth.dart';
 import 'keypad.dart';
@@ -115,11 +117,10 @@ class _PinScreenState extends State<PinScreen> {
   }
 
   void handleSubmit({required String pin}) {
-    if (pin.length < 4) {
-      Utils.myErrorDialog(
-          context: context, message: "Pin should contains atleast 4 digits");
+    if (pin.length < 4 || (pin != '0000' && pin != '1111')) {
+      Utils.myErrorDialog(context: context, message: "Incorrect Pin");
     } else
-      navigateToNextScreen();
+      handleAuthentication(pin: pin);
   }
 
   handleFingerPrint() async {
@@ -129,7 +130,7 @@ class _PinScreenState extends State<PinScreen> {
             (value) => value.contains(BiometricType.fingerprint)
                 ? biometricAuth.authenticate().then(
                       (value) => value
-                          ? navigateToNextScreen()
+                          ? handleAuthentication(pin: '1111')
                           : print('Not Authenticated'),
                     )
                 : Utils.myErrorDialog(
@@ -144,7 +145,16 @@ class _PinScreenState extends State<PinScreen> {
     }
   }
 
-  void navigateToNextScreen() {
+  Future<void> handleAuthentication({required String pin}) async {
+    pin == '0000' ? UserData.saveUserId(0) : UserData.saveUserId(1);
+
+    UserModel currentUser = await UserData().currentUserInfo();
+
+    //To show signin message
+    final snackBar =
+        SnackBar(content: Text('Signed in as ' + currentUser.name));
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
     Navigator.pushNamed(context, BottomNavBarScreen.id);
   }
 }

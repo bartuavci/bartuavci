@@ -27,8 +27,11 @@ dependencies:
   device_preview: ^0.7.3
   fl_chart: ^0.36.1
   flutter_svg: ^0.22.0
+  intl: ^0.17.0
   local_auth: ^1.1.6
   pinput: ^1.2.0
+  shared_preferences: ^2.0.6
+  wc_flutter_share: ^0.4.0
 
 dev_dependencies:
   flutter_test:

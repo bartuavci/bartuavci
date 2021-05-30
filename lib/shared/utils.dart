@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import '../profile/profile_screen.dart';
 import 'widgets/appbar_close.dart';
 
@@ -60,12 +61,14 @@ class Utils {
     );
   }
 
-  static AppBar myAppBar(BuildContext context,
-      {required String text,
-      Color? backgroundColor,
-      bool showAction = false,
-      bool showLeading = false,
-      double height = 86}) {
+  static AppBar myAppBar(
+    BuildContext context, {
+    required String text,
+    Color? backgroundColor,
+    bool showAction = false,
+    bool showLeading = false,
+    double height = 86,
+  }) {
     return AppBar(
       backgroundColor: backgroundColor,
       toolbarHeight: height,
@@ -84,5 +87,10 @@ class Utils {
             : SizedBox.shrink()
       ],
     );
+  }
+
+// THis is to format number like 123456 to 123,456
+  static String formatNumberToPrice({required int number}) {
+    return NumberFormat("#,###", "en_US").format(number);
   }
 }

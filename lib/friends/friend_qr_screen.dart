@@ -74,7 +74,7 @@ class FriendQrScreen extends StatelessWidget {
 
   MyQrCodeWidget buildQrCode() {
     return MyQrCodeWidget(
-      imageName: 'ba.png',
+      imageName: 'user1.png',
     );
   }
 }

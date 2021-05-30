@@ -14,12 +14,15 @@ class SpacesScreen extends StatelessWidget {
     return Scaffold(
       appBar: Utils.myAppBar(context, text: id),
       body: Padding(
-        padding: const EdgeInsets.all(14.0),
+        padding: const EdgeInsets.symmetric(horizontal: 14),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MyTotalBalanceWidget(
-              totalBalance: '220,000',
+              totalBalance: '10,000',
+            ),
+            SizedBox(
+              height: 40,
             ),
             Expanded(
               child: GridView.count(

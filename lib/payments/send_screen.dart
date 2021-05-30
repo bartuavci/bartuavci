@@ -55,7 +55,7 @@ class SendScreen extends StatelessWidget {
 
   MyQrCodeWidget buildQrCode() {
     return MyQrCodeWidget(
-      imageName: 'sf.png',
+      imageName: 'user3.png',
     );
   }
 }

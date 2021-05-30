@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:neo/shared/constant/values.dart';
+import 'package:neo/user/user_data.dart';
+import 'package:neo/user/user_model.dart';
 
 import '../constant/colors.dart';
-import '../constant/values.dart';
 
 class MyCircularImage extends StatelessWidget {
   final double allMargin;
   final double width;
   final double height;
+
   const MyCircularImage({
     Key? key,
     this.allMargin = 14,
@@ -16,22 +19,32 @@ class MyCircularImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(allMargin),
-      width: height,
-      height: width,
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: ConstantColors.darkGreen,
-          width: 3,
-        ),
-        shape: BoxShape.circle,
-        image: DecorationImage(
-          image: AssetImage(
-            '${BASE_USERS_URL}user_1.jpg',
-          ),
-        ),
-      ),
+    return FutureBuilder(
+      future: UserData().currentUserInfo(),
+      builder: (context, AsyncSnapshot<UserModel> snapshot) {
+        if (snapshot.hasData) {
+          return Container(
+            margin: EdgeInsets.all(allMargin),
+            width: height,
+            height: width,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: ConstantColors.darkGreen,
+                width: 3,
+              ),
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(
+                  snapshot.data!.picture,
+                  // '${BASE_USERS_URL}user_1.jpg',
+                ),
+              ),
+            ),
+          );
+        } else {
+          return Text('');
+        }
+      },
     );
   }
 }

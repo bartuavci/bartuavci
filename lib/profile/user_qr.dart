@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:neo/shared/constant/values.dart';
+import 'package:wc_flutter_share/wc_flutter_share.dart';
 import '../shared/constant/styles.dart';
 import '../shared/utils.dart';
 import '../shared/widgets/button.dart';
@@ -13,8 +16,9 @@ class UserQrScreen extends StatelessWidget {
     return Scaffold(
       appBar: Utils.myAppBar(
         context,
-        text: "Friends",
+        text: "QR Code",
         showLeading: true,
+        showAction: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -22,7 +26,7 @@ class UserQrScreen extends StatelessWidget {
           child: Column(
             children: [
               MyQrCodeWidget(
-                imageName: 'ma.png',
+                imageName: 'user2.png',
               ),
               SizedBox(
                 height: 10,
@@ -41,8 +45,11 @@ class UserQrScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  MyButton(
-                    text: 'Share',
+                  GestureDetector(
+                    onTap: () => handleTap(),
+                    child: MyButton(
+                      text: 'Share',
+                    ),
                   ),
                 ],
               )
@@ -50,6 +57,17 @@ class UserQrScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  handleTap() async {
+    // Share.shareFiles([BASE_QR_URL + 'ma.png'], text: "My Qr code");
+    final ByteData bytes = await rootBundle.load(BASE_QR_URL + 'user2.png');
+    await WcFlutterShare.share(
+      sharePopupTitle: 'Share',
+      fileName: 'ma.png',
+      mimeType: 'image/png',
+      bytesOfFile: bytes.buffer.asUint8List(),
     );
   }
 }
