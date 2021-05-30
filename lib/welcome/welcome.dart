@@ -7,7 +7,44 @@ import '../shared/constant/values.dart';
 import '../shared/utils.dart';
 import '../shared/widgets/button.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
+  @override
+  _WelcomeScreenState createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with TickerProviderStateMixin {
+  bool animationCompleted = false;
+
+  late final AnimationController _controllerLogo = AnimationController(
+    duration: const Duration(seconds: 2),
+    vsync: this,
+  )..repeat(reverse: false);
+
+  late final Animation<double> _animationLogo = CurvedAnimation(
+    parent: _controllerLogo,
+    curve: Curves.easeIn,
+  );
+
+  @override
+  void initState() {
+    _animationLogo.addStatusListener((status) {
+      setState(() {
+        if (status == AnimationStatus.completed) {
+          animationCompleted = true;
+        }
+      });
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controllerLogo.dispose();
+
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,22 +53,26 @@ class WelcomeScreen extends StatelessWidget {
         child: ListView(
           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            //Language
             buildTop(),
-            buildMiddle(context),
-            buildDivider(),
+
+            //Logo
+            buildLogo(context),
+
+            // Welcome to future, login and logout
+            buildRemaining(context),
           ],
         ),
       ),
     );
   }
 
-  Widget buildMiddle(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 60.0),
+  Widget buildRemaining(BuildContext context) {
+    return Visibility(
+      visible: animationCompleted,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          buildLogo(context),
           Text(
             'Welcome to the Future',
             textAlign: TextAlign.center,
@@ -50,33 +91,39 @@ class WelcomeScreen extends StatelessWidget {
           MyButton(
             margin: EdgeInsets.only(top: 16),
             text: 'REGISTER',
-          )
+          ),
+
+          //Divider
+          buildDivider(),
         ],
       ),
     );
   }
 
   Padding buildLogo(BuildContext context) {
+    _controllerLogo.forward();
+
     return Padding(
-      padding: const EdgeInsets.only(bottom: 24.0, top: 24),
-      child: Image.asset(
-        LOGO_IMAGE,
-        alignment: Alignment.center,
-        width: Utils.screenWidth(context: context) / 2,
-        height: Utils.screenWidth(context: context) / 2,
+      padding: const EdgeInsets.only(top: 84.0, bottom: 24),
+      child: FadeTransition(
+        opacity: _animationLogo,
+        child: Image.asset(
+          LOGO_IMAGE,
+          alignment: Alignment.center,
+          width: Utils.screenWidth(context: context) / 2,
+          height: Utils.screenWidth(context: context) / 2,
+        ),
       ),
     );
   }
 
   Widget buildDivider() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 106, bottom: 100),
-      child: Divider(
-        thickness: 3,
-        endIndent: 38,
-        indent: 38,
-        color: ConstantColors.darkGreen,
-      ),
+    return Divider(
+      thickness: 3,
+      endIndent: 38,
+      indent: 38,
+      height: 200,
+      color: ConstantColors.darkGreen,
     );
   }
 
