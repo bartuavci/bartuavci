@@ -27,11 +27,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: screens,
-      ),
-      // screens[_selectedIndex],
+      body:
+          //  IndexedStack(
+          //   index: _selectedIndex,
+          //   children: screens,
+          // ),
+          screens[_selectedIndex],
       bottomNavigationBar: Container(
         // height: 75,
         decoration: BoxDecoration(

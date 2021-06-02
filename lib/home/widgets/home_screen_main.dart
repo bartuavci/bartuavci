@@ -35,7 +35,9 @@ class HomeScreenMainWidget extends StatelessWidget {
                   return Text(snapshot.error.toString());
                 } else
                   return Text(
-                    'PKR ${snapshot.data.toString()}',
+                    'PKR ' +
+                        Utils.formatNumberToPrice(
+                            number: int.parse(snapshot.data.toString())),
                     style: ConstantStyles.textStyle10,
                   );
               }

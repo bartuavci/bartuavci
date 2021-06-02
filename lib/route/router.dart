@@ -45,8 +45,8 @@ class AppRouter {
         return buildRoute(screen: QRViewPage());
       case SendScreen.id:
         return buildRoute(screen: SendScreen());
-      case SentScreen.id:
-        return buildRoute(screen: SentScreen());
+      // case SentScreen.id:
+      //   return buildRoute(screen: SentScreen());
       case SpacesScreen.id:
         return buildRoute(screen: SpacesScreen());
       case RentScreen.id:

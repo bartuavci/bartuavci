@@ -19,7 +19,7 @@ class SpacesScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MyTotalBalanceWidget(
-              totalBalance: '10,000',
+              totalBalance: '10000',
             ),
             SizedBox(
               height: 40,

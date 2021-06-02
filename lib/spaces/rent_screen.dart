@@ -38,8 +38,7 @@ class _RentScreenState extends State<RentScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: Column(
             children: [
-              MyTotalBalanceWidget(
-                  totalBalance: Utils.formatNumberToPrice(number: balance)),
+              MyTotalBalanceWidget(totalBalance: balance.toString()),
               SizedBox(
                 height: 20,
               ),

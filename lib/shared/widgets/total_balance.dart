@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo/shared/utils.dart';
 import '../constant/colors.dart';
 import '../constant/styles.dart';
 
@@ -14,7 +15,9 @@ class MyTotalBalanceWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'PKR $totalBalance',
+          'PKR ' +
+              Utils.formatNumberToPrice(number: int.parse(totalBalance))
+                  .toString(),
           style: ConstantStyles.textStyle14,
         ),
         SizedBox(height: 4),

@@ -186,6 +186,13 @@ class _QrResultPageState extends State<QrResultPage> {
   }
 
   handleSuccess() {
-    Navigator.pushNamed(context, SentScreen.id);
+    // Navigator.pushNamed(context, SentScreen.id);
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SentScreen(
+              qrData: int.parse(widget.qrData) + 1,
+              amount: _amountController.text),
+        ));
   }
 }
