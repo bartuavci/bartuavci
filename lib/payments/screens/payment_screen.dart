@@ -1,26 +1,40 @@
 import 'package:flutter/material.dart';
-import 'data/payment_list.dart';
-import 'payments_model.dart';
-import 'send_screen.dart';
-import '../shared/utils.dart';
-import '../shared/widgets/button.dart';
-import '../shared/widgets/card.dart';
+import 'package:neo/home/widgets/home_screen_main.dart';
+import 'package:neo/payments/api/api.dart';
+import 'package:neo/payments/data/payment_list.dart';
+import 'package:neo/payments/data/payments_model.dart';
+import 'package:neo/payments/screens/qrcode_view_page.dart';
+import 'package:neo/shared/utils.dart';
+import 'package:neo/shared/widgets/button.dart';
+import 'package:neo/shared/widgets/card.dart';
+import 'package:neo/shared/widgets/total_balance.dart';
+import 'package:neo/user/user_data.dart';
 
-import '../shared/widgets/total_balance.dart';
-
-class PaymentsScreen extends StatelessWidget {
+class PaymentScreen extends StatelessWidget {
   static const id = 'Payment';
+  // final String _totalBalance = '220,000';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Utils.myAppBar(context, text: id, showAction: true),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 2),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            buildTotalBalance(),
+            FutureBuilder(
+                future: UserData().getUserId(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting)
+                    return Text('Loading');
+                  else {
+                    if (snapshot.hasError)
+                      return Text(snapshot.error.toString());
+                    else
+                      return buildTotalBalance(userId: snapshot.data);
+                  }
+                }),
             buildButtons(context),
             buildListView(),
           ],
@@ -59,7 +73,14 @@ class PaymentsScreen extends StatelessWidget {
           Expanded(
             flex: 10,
             child: GestureDetector(
-              onTap: () => Navigator.pushNamed(context, SendScreen.id),
+              onTap: () {
+                Navigator.pushNamed(context, QRViewPage.id);
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => QRViewPage(),
+                //     ));
+              },
               child: MyButton(
                 margin: EdgeInsets.all(0),
                 borderRadius: 9,
@@ -72,9 +93,24 @@ class PaymentsScreen extends StatelessWidget {
     );
   }
 
-  MyTotalBalanceWidget buildTotalBalance() {
-    return MyTotalBalanceWidget(
-      totalBalance: '220,000',
+  Widget buildTotalBalance({Object? userId}) {
+    return FutureBuilder(
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Container(child: CircularProgressIndicator());
+        } else {
+          if (snapshot.hasError) {
+            return Text(snapshot.error.toString());
+          } else
+            return MyTotalBalanceWidget(
+              totalBalance: snapshot.data.toString(),
+            );
+        }
+      },
+      future: Api().getBalanceOnly(
+        userId: userId.toString(),
+        balanceType: UserData.balanceType[1],
+      ),
     );
   }
 

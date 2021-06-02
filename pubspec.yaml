@@ -25,11 +25,12 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   device_preview: ^0.7.3
+  firebase_database: ^7.0.0
   fl_chart: ^0.36.1
   flutter_svg: ^0.22.0
   intl: ^0.17.0
   local_auth: ^1.1.6
-  pinput: ^1.2.0
+  qr_code_scanner: ^0.4.0
   shared_preferences: ^2.0.6
   wc_flutter_share: ^0.4.0
 

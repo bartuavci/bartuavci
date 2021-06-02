@@ -1,6 +1,6 @@
 import 'package:neo/shared/constant/values.dart';
 
-import '../payments_model.dart';
+import 'payments_model.dart';
 
 final List<PaymentsModel> paymentsList = [
   PaymentsModel(

@@ -20,6 +20,13 @@ class UserData {
     ),
   ];
 
+  static String user0Pin = '0000';
+  static String user1Pin = '1111';
+
+  static List<int> userIdList = [0, 1];
+
+  static List<String> balanceType = ['homeBalance', 'paymentBalance'];
+
   static saveUserId(int id) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt('id', id);

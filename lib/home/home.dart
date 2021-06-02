@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo/user/user_data.dart';
 import '../shared/constant/colors.dart';
 import '../shared/utils.dart';
 import 'widgets/category_image.dart';
@@ -17,7 +18,18 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            HomeScreenMainWidget(),
+            FutureBuilder(
+                future: UserData().getUserId(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting)
+                    return Text('Loading');
+                  else {
+                    if (snapshot.hasError)
+                      return Text(snapshot.error.toString());
+                    else
+                      return HomeScreenMainWidget(userId: snapshot.data);
+                  }
+                }),
             CenterImageWidget(),
           ],
         ),

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:neo/payments/screens/payment_screen.dart';
 
 import '../card/card_screen.dart';
 import '../friends/friends_screen.dart';
 import '../home/home.dart';
-import '../payments/payments_screen.dart';
+
 import '../shared/constant/colors.dart';
 import '../spaces/spaces.dart';
 
@@ -21,7 +22,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     SpacesScreen(),
     HomeScreen(),
     CardScreen(),
-    PaymentsScreen()
+    PaymentScreen()
   ];
   @override
   Widget build(BuildContext context) {
@@ -70,7 +71,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     SpacesScreen.id,
     HomeScreen.id,
     CardScreen.id,
-    PaymentsScreen.id,
+    PaymentScreen.id,
   ];
   List<IconData> bnvInitialIcons = [
     Icons.contacts,

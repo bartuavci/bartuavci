@@ -1,14 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:neo/payments/screens/payment_screen.dart';
+import 'package:neo/payments/screens/qrcode_view_page.dart';
+import 'package:neo/payments/screens/send_screen.dart';
+import 'package:neo/payments/screens/sent_screen.dart';
+
 import '../bottom_nav_bar/bnb.dart';
 import '../card/card_approved_screen.dart';
 import '../card/card_screen.dart';
 import '../friends/friend_qr_screen.dart';
 import '../friends/friends_screen.dart';
 import '../home/home.dart';
-import '../payments/payments_screen.dart';
-import '../payments/send_screen.dart';
-import '../payments/sent_screen.dart';
+
 import '../pin/pin.dart';
 import '../profile/profile_screen.dart';
 import '../profile/user_qr.dart';
@@ -36,8 +39,10 @@ class AppRouter {
         return buildRoute(screen: FriendQrScreen());
       case HomeScreen.id:
         return buildRoute(screen: HomeScreen());
-      case PaymentsScreen.id:
-        return buildRoute(screen: PaymentsScreen());
+      case PaymentScreen.id:
+        return buildRoute(screen: PaymentScreen());
+      case QRViewPage.id:
+        return buildRoute(screen: QRViewPage());
       case SendScreen.id:
         return buildRoute(screen: SendScreen());
       case SentScreen.id:

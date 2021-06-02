@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:neo/payments/api/api.dart';
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:neo/shared/utils.dart';
+import 'package:neo/user/user_data.dart';
 
 import 'pie_chart.dart';
 
 class HomeScreenMainWidget extends StatelessWidget {
+  final Object? userId;
   const HomeScreenMainWidget({
     Key? key,
+    required this.userId,
   }) : super(key: key);
 
   @override
@@ -22,9 +26,24 @@ class HomeScreenMainWidget extends StatelessWidget {
             'Your Balance',
             style: ConstantStyles.textStyle9,
           ),
-          Text(
-            'PKR 252,968',
-            style: ConstantStyles.textStyle10,
+          FutureBuilder(
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return CircularProgressIndicator();
+              } else {
+                if (snapshot.hasError) {
+                  return Text(snapshot.error.toString());
+                } else
+                  return Text(
+                    'PKR ${snapshot.data.toString()}',
+                    style: ConstantStyles.textStyle10,
+                  );
+              }
+            },
+            future: Api().getBalanceOnly(
+              userId: userId.toString(),
+              balanceType: UserData.balanceType[0],
+            ),
           ),
           Divider(
             indent: Utils.screenWidth(context: context) / 3,

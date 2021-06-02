@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'sent_screen.dart';
+import 'package:neo/shared/utils.dart';
+import 'package:neo/shared/widgets/done.dart';
+import 'package:neo/shared/widgets/qr_code.dart';
 
-import '../shared/utils.dart';
-import '../shared/widgets/button.dart';
-import '../shared/widgets/qr_code.dart';
-
-class SendScreen extends StatelessWidget {
-  static const id = 'Send';
-  const SendScreen({Key? key}) : super(key: key);
+class SentScreen extends StatelessWidget {
+  static const id = 'Sent';
+  const SentScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,25 +18,14 @@ class SendScreen extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(14, 70, 14, 70),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              buildQrCode(),
-              buildPrice(),
-              buildSendButton(context),
-            ],
+            children: [buildQrCode(), buildPrice(), buildDone()],
           ),
         ),
       ),
     );
   }
 
-  GestureDetector buildSendButton(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, SentScreen.id),
-      child: MyButton(
-        text: 'Send',
-      ),
-    );
-  }
+  MyDoneWidget buildDone() => MyDoneWidget(text: 'Sent');
 
   Padding buildPrice() {
     return Padding(

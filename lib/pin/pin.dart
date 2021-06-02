@@ -117,7 +117,8 @@ class _PinScreenState extends State<PinScreen> {
   }
 
   void handleSubmit({required String pin}) {
-    if (pin.length < 4 || (pin != '0000' && pin != '1111')) {
+    if (pin.length < 4 ||
+        (pin != UserData.user0Pin && pin != UserData.user1Pin)) {
       Utils.myErrorDialog(context: context, message: "Incorrect Pin");
     } else
       handleAuthentication(pin: pin);
@@ -130,7 +131,7 @@ class _PinScreenState extends State<PinScreen> {
             (value) => value.contains(BiometricType.fingerprint)
                 ? biometricAuth.authenticate().then(
                       (value) => value
-                          ? handleAuthentication(pin: '1111')
+                          ? handleAuthentication(pin: UserData.user1Pin)
                           : print('Not Authenticated'),
                     )
                 : Utils.myErrorDialog(
@@ -146,7 +147,9 @@ class _PinScreenState extends State<PinScreen> {
   }
 
   Future<void> handleAuthentication({required String pin}) async {
-    pin == '0000' ? UserData.saveUserId(0) : UserData.saveUserId(1);
+    pin == UserData.user0Pin
+        ? UserData.saveUserId(UserData.userIdList[0])
+        : UserData.saveUserId(UserData.userIdList[1]);
 
     UserModel currentUser = await UserData().currentUserInfo();
 
