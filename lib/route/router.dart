@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:neo/payments/screens/payment_screen.dart';
 import 'package:neo/payments/screens/qrcode_view_page.dart';
 import 'package:neo/payments/screens/send_screen.dart';
-import 'package:neo/payments/screens/sent_screen.dart';
 
 import '../bottom_nav_bar/bnb.dart';
 import '../card/card_approved_screen.dart';

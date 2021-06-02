@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:neo/payments/api/api.dart';
-import 'package:neo/payments/screens/send_screen.dart';
 import 'package:neo/payments/screens/sent_screen.dart';
 
 import 'package:neo/shared/constant/colors.dart';

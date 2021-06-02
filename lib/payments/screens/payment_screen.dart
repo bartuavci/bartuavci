@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neo/home/widgets/home_screen_main.dart';
 import 'package:neo/payments/api/api.dart';
 import 'package:neo/payments/data/payment_list.dart';
 import 'package:neo/payments/data/payments_model.dart';
