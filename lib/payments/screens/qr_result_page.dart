@@ -101,7 +101,7 @@ class _QrResultPageState extends State<QrResultPage> {
     });
     Api().getBalancesAll().then(
       (value) {
-        if (userId == UserData.userIdList[0].toString()) {
+        if (userId != UserData.userIdList[0].toString()) {
           ref
               .child('balances')
               .child('user0')
