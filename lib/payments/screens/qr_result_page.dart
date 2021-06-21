@@ -105,27 +105,27 @@ class _QrResultPageState extends State<QrResultPage> {
           ref
               .child('balances')
               .child('user0')
-              .child('paymentBalance')
-              .set(value.balances.user0.paymentBalance - amount);
+              .child('balance')
+              .set(value.balances.user0.balance - amount);
           ref
               .child('balances')
               .child('user1')
-              .child('homeBalance')
-              .set(value.balances.user1.homeBalance + amount)
+              .child('balance')
+              .set(value.balances.user1.balance + amount)
               .then((value) => handleSuccess())
               .catchError((error) => handleError(error));
         } else {
           ref
               .child('balances')
               .child('user1')
-              .child('paymentBalance')
-              .set(value.balances.user1.paymentBalance - amount);
+              .child('balance')
+              .set(value.balances.user1.balance - amount);
 
           ref
               .child('balances')
               .child('user0')
-              .child('homeBalance')
-              .set(value.balances.user0.homeBalance + amount)
+              .child('balance')
+              .set(value.balances.user0.balance + amount)
               .then((value) => handleSuccess())
               .catchError(
                 (error) => handleError(error),

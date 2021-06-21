@@ -3,7 +3,6 @@ import 'package:neo/payments/api/api.dart';
 import 'package:neo/shared/constant/colors.dart';
 import 'package:neo/shared/constant/styles.dart';
 import 'package:neo/shared/utils.dart';
-import 'package:neo/user/user_data.dart';
 
 import 'pie_chart.dart';
 
@@ -44,7 +43,6 @@ class HomeScreenMainWidget extends StatelessWidget {
             },
             future: Api().getBalanceOnly(
               userId: userId.toString(),
-              balanceType: UserData.balanceType[0],
             ),
           ),
           Divider(

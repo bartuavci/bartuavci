@@ -108,7 +108,6 @@ class PaymentScreen extends StatelessWidget {
       },
       future: Api().getBalanceOnly(
         userId: userId.toString(),
-        balanceType: UserData.balanceType[1],
       ),
     );
   }

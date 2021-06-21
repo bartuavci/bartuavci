@@ -9,11 +9,11 @@ import 'package:neo/payments/data/balance_model.dart';
 class Api {
   final ref = FirebaseDatabase.instance.reference();
 
-  Future<String> getBalanceOnly(
-      {required String userId, required String balanceType}) async {
+  Future<String> getBalanceOnly({required String userId}) async {
     try {
       final response = await http.get(Uri.parse(
-          'https://testing-483b1.firebaseio.com/balances/user$userId/$balanceType/.json'));
+          // 'https://neo-mvp-database-default-rtdb.europe-west1.firebasedatabase.app/balances/user$userId/balance/.json'
+          'https://testing-483b1.firebaseio.com/balances/user$userId/balance/.json'));
       return _responseBalanceOnly(response);
     } on SocketException {
       throw AppException(

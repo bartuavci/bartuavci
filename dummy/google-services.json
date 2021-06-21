@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "156585218610",
+    "project_id": "neo-mvp-database",
+    "storage_bucket": "neo-mvp-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156585218610:android:b8287ce21de532b84c222b",
+        "android_client_info": {
+          "package_name": "com.example.neo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156585218610-7gns8rin1b1odbpgmshuoqaahkj1m294.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb1EDqdl8KgRzNcvmlrfOuiK72GECPj1g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156585218610-7gns8rin1b1odbpgmshuoqaahkj1m294.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

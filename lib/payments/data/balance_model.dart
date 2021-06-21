@@ -32,7 +32,7 @@ class BalancesModel {
       BalancesModel.fromMap(json.decode(source));
 
   @override
-  String toString() => 'BalancesModel(balances: $balances)';
+  String toString() => 'BalanceModel(balances: $balances)';
 
   @override
   bool operator ==(Object other) {
@@ -97,34 +97,28 @@ class Balances {
 }
 
 class User0 {
-  final int homeBalance;
-  final int paymentBalance;
+  final int balance;
   User0({
-    required this.homeBalance,
-    required this.paymentBalance,
+    required this.balance,
   });
 
   User0 copyWith({
-    int? homeBalance,
-    int? paymentBalance,
+    int? balance,
   }) {
     return User0(
-      homeBalance: homeBalance ?? this.homeBalance,
-      paymentBalance: paymentBalance ?? this.paymentBalance,
+      balance: balance ?? this.balance,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'homeBalance': homeBalance,
-      'paymentBalance': paymentBalance,
+      'balance': balance,
     };
   }
 
   factory User0.fromMap(Map<String, dynamic> map) {
     return User0(
-      homeBalance: map['homeBalance']?.toInt(),
-      paymentBalance: map['paymentBalance']?.toInt(),
+      balance: map['balance']?.toInt(),
     );
   }
 
@@ -133,51 +127,42 @@ class User0 {
   factory User0.fromJson(String source) => User0.fromMap(json.decode(source));
 
   @override
-  String toString() =>
-      'User0(homeBalance: $homeBalance, paymentBalance: $paymentBalance)';
+  String toString() => 'User0(balance: $balance)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is User0 &&
-        other.homeBalance == homeBalance &&
-        other.paymentBalance == paymentBalance;
+    return other is User0 && other.balance == balance;
   }
 
   @override
-  int get hashCode => homeBalance.hashCode ^ paymentBalance.hashCode;
+  int get hashCode => balance.hashCode;
 }
 
 class User1 {
-  final int homeBalance;
-  final int paymentBalance;
+  final int balance;
   User1({
-    required this.homeBalance,
-    required this.paymentBalance,
+    required this.balance,
   });
 
   User1 copyWith({
-    int? homeBalance,
-    int? paymentBalance,
+    int? balance,
   }) {
     return User1(
-      homeBalance: homeBalance ?? this.homeBalance,
-      paymentBalance: paymentBalance ?? this.paymentBalance,
+      balance: balance ?? this.balance,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'homeBalance': homeBalance,
-      'paymentBalance': paymentBalance,
+      'balance': balance,
     };
   }
 
   factory User1.fromMap(Map<String, dynamic> map) {
     return User1(
-      homeBalance: map['homeBalance']?.toInt(),
-      paymentBalance: map['paymentBalance']?.toInt(),
+      balance: map['balance']?.toInt(),
     );
   }
 
@@ -186,18 +171,15 @@ class User1 {
   factory User1.fromJson(String source) => User1.fromMap(json.decode(source));
 
   @override
-  String toString() =>
-      'User1(homeBalance: $homeBalance, paymentBalance: $paymentBalance)';
+  String toString() => 'User1(balance: $balance)';
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is User1 &&
-        other.homeBalance == homeBalance &&
-        other.paymentBalance == paymentBalance;
+    return other is User1 && other.balance == balance;
   }
 
   @override
-  int get hashCode => homeBalance.hashCode ^ paymentBalance.hashCode;
+  int get hashCode => balance.hashCode;
 }
